@@ -6,9 +6,17 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL: https://github.com/Keerthi72/argo-cd-config.git
     targetRevision: HEAD
-    path: guestbook
+    path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: guestbook
+    namespace: myapp
+  syncPolicy:
+    syncOptions:
+    - CreateNameSpace=true
+    automated:
+      selfHeal : true
+      prune : true
+    
+      
